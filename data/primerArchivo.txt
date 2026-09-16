@@ -1,0 +1,4 @@
+Primer fichero de Acceso a Datos
+Curso: DAM
+Bloque 1: Gestion de ficheros
+Java: 21
