@@ -1,8 +1,7 @@
 package dam.accesodatos.bloque1;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class GestionJson {
@@ -11,29 +10,30 @@ public class GestionJson {
 
         Path archivo = Path.of("data", "alumno.json");
 
-        AlumnoJson alumnoOriginal =
-                new AlumnoJson("Laura", 25, "DAM");
-
-        ObjectMapper mapper = new ObjectMapper();
+        String json = """
+                {
+                    "nombre": "Laura",
+                    "edad": 25,
+                    "ciclo": "DAM"
+                }
+                """;
 
         try {
 
-            mapper.writerWithDefaultPrettyPrinter()
-                    .writeValue(archivo.toFile(), alumnoOriginal);
+            Files.createDirectories(archivo.getParent());
 
-            System.out.println("Objeto guardado en JSON.");
+            Files.writeString(archivo, json);
 
-            AlumnoJson alumnoRecuperado =
-                    mapper.readValue(
-                            archivo.toFile(),
-                            AlumnoJson.class
-                    );
+            System.out.println("JSON creado correctamente.");
+
+            String contenido = Files.readString(archivo);
 
             System.out.println();
-            System.out.println("Objeto recuperado:");
-            System.out.println(alumnoRecuperado);
+            System.out.println("Contenido recuperado del JSON:");
+            System.out.println(contenido);
 
         } catch (IOException e) {
+
             System.out.println("Error trabajando con JSON.");
             System.out.println(e.getMessage());
         }
