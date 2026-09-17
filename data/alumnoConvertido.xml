@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<alumno>
+    <nombre>Laura</nombre>
+    <edad>25</edad>
+    <ciclo>DAM</ciclo>
+</alumno>
