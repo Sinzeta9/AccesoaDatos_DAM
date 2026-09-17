@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-﻿# AccesoaDatos_DAM
+<<<<<<< HEAD ﻿# AccesoaDatos_DAM
 =======
 ﻿# AccesoaDatos\_DAM
 >>>>>>> 1f6e81b (Corrige nombre del proyecto a AccesoaDatos_DAM)
