@@ -1,4 +1,4 @@
-﻿# AcesoaDatos_DAM
+﻿# AccesoaDatos_DAM
 
 Proyecto de aprendizaje de la asignatura Acceso a Datos del ciclo DAM.
 
