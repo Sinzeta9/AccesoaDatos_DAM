@@ -7,7 +7,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>dam.accesodatos</groupId>
-    <artifactId>AcesoaDatos_DAM</artifactId>
+    <artifactId>AccesoaDatos_DAM</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
