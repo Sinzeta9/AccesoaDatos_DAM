@@ -1,7 +1,6 @@
 package dam.accesodatos.bloque2;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -9,19 +8,11 @@ public class ConsultaAlumnos {
 
     public static void main(String[] args) {
 
-        String url = "jdbc:postgresql://localhost:5433/accesodatos";
-        String usuario = "dam";
-        String password = "dam123";
-
         String sql = "SELECT * FROM alumnos";
 
         try (
                 Connection conexion =
-                        DriverManager.getConnection(
-                                url,
-                                usuario,
-                                password
-                        );
+                        ConexionBD.conectar();
 
                 Statement statement =
                         conexion.createStatement();
