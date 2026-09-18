@@ -1,0 +1,53 @@
+package dam.accesodatos.bloque2;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+
+public class ActualizarAlumno {
+
+    public static void main(String[] args) {
+
+        String url =
+                "jdbc:postgresql://localhost:5433/accesodatos";
+
+        String usuario = "dam";
+        String password = "dam123";
+
+        String sql =
+                "UPDATE alumnos " +
+                "SET edad = ? " +
+                "WHERE nombre = ?";
+
+        try (
+                Connection conexion =
+                        DriverManager.getConnection(
+                                url,
+                                usuario,
+                                password
+                        );
+
+                PreparedStatement sentencia =
+                        conexion.prepareStatement(sql)
+        ) {
+
+            sentencia.setInt(1, 25);
+            sentencia.setString(2, "Marta");
+
+            int filas =
+                    sentencia.executeUpdate();
+
+            System.out.println(
+                    "Filas actualizadas: " + filas
+            );
+
+        } catch (Exception e) {
+
+            System.out.println(
+                    "Error al actualizar el alumno."
+            );
+
+            System.out.println(e.getMessage());
+        }
+    }
+}
