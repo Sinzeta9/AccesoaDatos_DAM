@@ -1,5 +1,11 @@
 package dam.accesodatos.bloque3;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.ManyToMany;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,6 +32,33 @@ public class AlumnoCursoEntidad {
             nullable = false
     )
     private CursoEntidad curso;
+
+public List<ModuloEntidad> getModulos() {
+    return modulos;
+}
+
+public void agregarModulo(
+        ModuloEntidad modulo
+) {
+
+    modulos.add(modulo);
+    modulo.getAlumnos().add(this);
+}
+
+@ManyToMany
+@JoinTable(
+        name = "alumno_modulo",
+
+        joinColumns = @JoinColumn(
+                name = "alumno_id"
+        ),
+
+        inverseJoinColumns = @JoinColumn(
+                name = "modulo_id"
+        )
+)
+private List<ModuloEntidad> modulos =
+        new ArrayList<>();
 
     public AlumnoCursoEntidad() {
     }

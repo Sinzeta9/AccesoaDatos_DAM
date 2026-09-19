@@ -22,15 +22,28 @@ public class HibernateUtil {
             Configuration configuracion =
                     new Configuration();
 
+            /*
+             * ENTIDADES REGISTRADAS
+             */
+            configuracion.addAnnotatedClass(
+                    AlumnoEntidad.class
+            );
 
-	configuracion.addAnnotatedClass(
-        	CursoEntidad.class
-					);
+            configuracion.addAnnotatedClass(
+                    CursoEntidad.class
+            );
 
-	configuracion.addAnnotatedClass(
-        	AlumnoCursoEntidad.class
-					);
+            configuracion.addAnnotatedClass(
+                    AlumnoCursoEntidad.class
+            );
 
+            configuracion.addAnnotatedClass(
+                    ModuloEntidad.class
+            );
+
+            /*
+             * CONEXION POSTGRESQL
+             */
             configuracion.setProperty(
                     "hibernate.connection.driver_class",
                     "org.postgresql.Driver"
@@ -53,6 +66,9 @@ public class HibernateUtil {
                     "dam123"
             );
 
+            /*
+             * HIBERNATE
+             */
             configuracion.setProperty(
                     "hibernate.hbm2ddl.auto",
                     "validate"
@@ -77,11 +93,14 @@ public class HibernateUtil {
                     "Error al crear SessionFactory."
             );
 
+            e.printStackTrace();
+
             throw new RuntimeException(e);
         }
     }
 
     public static SessionFactory getSessionFactory() {
+
         return sessionFactory;
     }
 }
