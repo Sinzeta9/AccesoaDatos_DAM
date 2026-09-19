@@ -22,9 +22,14 @@ public class HibernateUtil {
             Configuration configuracion =
                     new Configuration();
 
-            configuracion.addAnnotatedClass(
-                    AlumnoEntidad.class
-            );
+
+	configuracion.addAnnotatedClass(
+        	CursoEntidad.class
+					);
+
+	configuracion.addAnnotatedClass(
+        	AlumnoCursoEntidad.class
+					);
 
             configuracion.setProperty(
                     "hibernate.connection.driver_class",
