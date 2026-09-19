@@ -96,3 +96,44 @@ VALUES (
 CREATE INDEX idx_perfiles_json_datos_gin
 ON perfiles_json
 USING GIN (datos);
+
+-- ============================================
+-- 4.16 - HERENCIA OBJETO-RELACIONAL
+-- ============================================
+
+DROP TABLE IF EXISTS empleados;
+DROP TABLE IF EXISTS personas_base;
+
+CREATE TABLE personas_base (
+    id SERIAL PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    edad INTEGER
+);
+
+CREATE TABLE empleados (
+    puesto VARCHAR(100),
+    salario NUMERIC(10,2)
+)
+INHERITS (personas_base);
+
+INSERT INTO personas_base (
+    nombre,
+    edad
+)
+VALUES (
+    'Laura',
+    25
+);
+
+INSERT INTO empleados (
+    nombre,
+    edad,
+    puesto,
+    salario
+)
+VALUES (
+    'Carlos',
+    30,
+    'Desarrollador',
+    28000.00
+);
