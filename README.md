@@ -1,8 +1,6 @@
-<<<<<<< HEAD ﻿# 
 AccesoaDatos_DAM
 =======
-﻿# AccesoaDatos\_DAM
->>>>>>> 1f6e81b (Corrige nombre del proyecto a AccesoaDatos_DAM)
+﻿>>>>>>> 1f6e81b (Corrige nombre del proyecto a AccesoaDatos_DAM)
 
 Proyecto de aprendizaje de la asignatura Acceso a Datos del ciclo DAM.
 
